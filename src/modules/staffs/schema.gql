@@ -1,0 +1,31 @@
+type Query {
+    staffs: [Staff]
+}
+
+type Mutation {
+    register(
+        staffname: String!, 
+        branchId: ID!,
+        pass: String!,
+        repeat_pass: String!,
+        birthDate: String!,
+        gender: Int
+    ): StaffResponse
+
+    login(staffname: String!, pass: String!): StaffResponse
+}
+
+type Staff {
+    staffId: ID!
+    branch: Branch
+    staffName: String!
+    staffBirthDate: String!
+    staffGender: String!
+}
+
+type StaffResponse {
+    status: Int!
+    message: String!
+    data: Staff
+    token: String
+}

@@ -1,0 +1,45 @@
+type Mutation {
+    addPermission(staffId: ID!, branchId: ID!, permissionModule: Int!, permission: Int!, value: Boolean!): PermissionRes!
+}
+
+type Query {
+    getUserPermission(staffId: ID!, permissionModule: ID!, permission: ID): UserPermissionRes!
+    allPermissions(staffId: ID!): AllPermissions
+}
+
+type PermissionRes {
+    status: Int!
+    message: String!
+}
+
+type Permissions {
+    staffId: ID
+    module: ID
+    create: Boolean
+    read: Boolean
+    delete: Boolean
+    update: Boolean
+}
+
+type AllPermissions {
+    staff_id: ID
+    staff_name: String
+    branch_create: Boolean
+    branch_read: Boolean
+    branch_delete: Boolean
+    branch_update: Boolean
+    trans_create: Boolean
+    trans_read: Boolean
+    trans_delete: Boolean
+    trans_update: Boolean
+    per_create: Boolean
+    per_read: Boolean
+    per_delete: Boolean
+    per_update: Boolean
+}
+
+type UserPermissionRes {
+    status: Int!
+    message: String!
+    data: Permissions
+}

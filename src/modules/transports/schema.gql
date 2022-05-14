@@ -1,0 +1,24 @@
+scalar Upload
+
+type Query {
+    transports(branchId: ID, search: String): TransRes
+}
+
+
+type Mutation {
+    addTransport(staffid: ID!, branchId: ID!, model: String!, color: String!, img: Upload!): TransRes!
+}
+
+type Trans {
+    trans_id: ID
+    branch_id: ID   
+    trans_model: String
+    trans_color: String
+    trans_img: String
+}
+
+type TransRes {
+    status: Int
+    message: String
+    data: Trans
+}

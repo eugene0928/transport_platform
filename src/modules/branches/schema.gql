@@ -1,0 +1,20 @@
+type Query {
+    branches: [Branch]!
+}
+
+type Mutation {
+    addBranch(branchName: String!, branchAddress: String!): BranchRes
+    deleteBranch(branchId: ID!): BranchRes
+}
+
+type BranchRes {
+    status: Int!
+    message: String!
+    data: Branch
+}
+
+type Branch {
+    branch_id: ID
+    branch_name: String
+    branch_address: String
+}
