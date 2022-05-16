@@ -11,7 +11,7 @@ export default {
             try {
                 // token unfold
             if(!token) {
-                throw ValidationError('Token is required!')
+                throw new ValidationError('Token is required!')
             }
 
             const { staffId, agent, staffPass } = jwt.verify(token)
@@ -41,11 +41,10 @@ export default {
             } else {
                 throw new ValidationError('You have not permission to give permission to others!')
             }
-            // tokendagi staffni permissionsni kurish ruxsat bulsa o'zgartirish
-            // adminga ruxsat berish
+            
             } catch (error) {
                 console.log(error)
-                throw new ValidationError(error.message)
+                throw error
             }
         }
     },

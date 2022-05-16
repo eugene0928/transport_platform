@@ -76,37 +76,37 @@ const ADD_PERMISSION_ON_BRANCH_UPDATE = `
 
 const ADD_PERMISSION_ON_TRANS_CREATE = `
     UPDATE   
-        trans_per
+        transport_per
     SET
         trans_create = $1
     WHERE
-       trans_per.staff_id = $2
+       transport_per.staff_id = $2
 `
 
 const ADD_PERMISSION_ON_TRANS_READ = `
     UPDATE   
-        trans_per
+        transport_per
     SET
         trans_read = $1
     WHERE
-       trans_per.staff_id = $2
+       transport_per.staff_id = $2
 `
 const ADD_PERMISSION_ON_TRANS_DELETE = `
     UPDATE   
-        trans_per
+        transport_per
     SET
         trans_delete = $1
     WHERE
-       trans_per.staff_id = $2
+       transport_per.staff_id = $2
 `
 
 const ADD_PERMISSION_ON_TRANS_UPDATE = `
     UPDATE   
-        trans_per
+        transport_per
     SET
         trans_update = $1
     WHERE
-       trans_per.staff_id = $2
+       transport_per.staff_id = $2
 `
 
 const ADD_PERMISSION_ON_PERM_CREATE = `
