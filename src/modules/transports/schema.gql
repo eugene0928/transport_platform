@@ -1,12 +1,13 @@
 scalar Upload
 
 type Query {
-    transports(branchId: ID, search: String): TransRes
+    transports(branchId: ID, search: String): [Trans]
 }
 
 
 type Mutation {
     addTransport(staffid: ID!, branchId: ID!, model: String!, color: String!, img: Upload!): TransRes!
+    deleteTransport(transId: ID! branchId: ID!): TransRes
 }
 
 type Trans {

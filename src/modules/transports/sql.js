@@ -14,10 +14,22 @@ const ADD_TRANSPORT = `
     VALUES 
         ($1, $2, $3, $4, $5)
     RETURNING 
-        branch_id, staff_id, trans_model, trans_color, trans_img
+        branch_id, staff_id, trans_id, trans_model, trans_color, trans_img
 `
+
+const DELETE_TRANSPORT = `
+    DELETE FROM 
+        transports
+    WHERE 
+        branch_id = $1  AND  trans_id = $2
+    RETURNING
+        trans_id, branch_id, trans_model, trans_color, trans_img
+
+`
+
 
 export default {
     GET_TRANSPORT,
-    ADD_TRANSPORT
+    ADD_TRANSPORT,
+    DELETE_TRANSPORT
 }
