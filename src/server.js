@@ -16,6 +16,7 @@ import schema from './modules/index.js'
     const httpServer = http.createServer(app)
     
     app.use(graphqlUploadExpress())
+    app.use(express.static(join(process.cwd(), 'uploads')))
     
     const server = new ApolloServer({
         context: ({req, res}) => {
@@ -25,7 +26,7 @@ import schema from './modules/index.js'
             }
         },
         schema,
-        csrfPrevention: true,
+        csrfPrevention: false,
         introspection: true,
         plugins: [
             ApolloServerPluginDrainHttpServer({ httpServer }),
@@ -35,6 +36,6 @@ import schema from './modules/index.js'
 
     await server.start()
     server.applyMiddleware({ app })
-    await new Promise(resolve => httpServer.listen({ port: process.env.PORT || 4000 }, resolve))
+    await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve))
     console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 }()
