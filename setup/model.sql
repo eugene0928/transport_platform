@@ -20,7 +20,7 @@ create table if not exists staffs(
     branch_id int not null references branches(branch_id),
     staff_name varchar(128) not null,
     staff_password varchar(128) not null,
-    staff_birth_date date not null,
+    staff_birth_date date check(staff_birth_date > '1960-01-01' and staff_birth_date < '2017-01-01'),
     staff_gender int2 default 1,
     staff_created_at timestamptz default current_timestamp
 );
