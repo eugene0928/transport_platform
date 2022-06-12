@@ -7,7 +7,8 @@ const pool = new pg.Pool({
     password: process.env.PG_PASSWORD,
     database: process.env.PG_DATABASE,
 })
-    
+
+console.log("db is established")
 async function db (query, ...params) {
     const client = await pool.connect()
     try {
